@@ -1,6 +1,7 @@
 package com.example.stationdeski.entities;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table( name = "Piste")
@@ -16,5 +17,8 @@ public class Piste implements Serializable {
     private Integer longeur;
     private Integer pente;
 
-// Constructeur et accesseurs (getters) et mutateurs (setters)
+
+
+    @ManyToMany()
+    private Set<Skieur> skieurs;
 }

@@ -13,4 +13,7 @@ public class Inscription implements Serializable {
     private String numInscription;
     private Integer numSemaine;
 
+    /*@ManyToOne
+    private Skieur skieur;*/
+
 }

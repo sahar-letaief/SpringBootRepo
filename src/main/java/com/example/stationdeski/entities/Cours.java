@@ -2,6 +2,7 @@ package com.example.stationdeski.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table( name = "Cours")
@@ -18,4 +19,7 @@ public class Cours implements Serializable {
     private Support support;
     private float prix;
     private Integer creneau;
+
+    @OneToMany()
+    private Set<Inscription> inscriptions;
 }

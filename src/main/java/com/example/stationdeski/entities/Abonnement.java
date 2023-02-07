@@ -2,7 +2,7 @@ package com.example.stationdeski.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table( name = "Abonnement")
@@ -12,9 +12,12 @@ public class Abonnement implements Serializable {
     @Column(name="idAbonnement")
     private Integer idAbonnement;
     private long numAbon;
-    private Date dateDebut;
-    private Date dateFin;
+    private LocalDate dateDebut;
+    private LocalDate dateFin;
     private float prixAbon;
     @Enumerated(EnumType.STRING)
     private typeAbonnement typeAbon;
+
+    @OneToOne
+    private Skieur skieur;
 }

@@ -2,7 +2,8 @@ package com.example.stationdeski.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name="Moniteur")
@@ -14,5 +15,8 @@ public class Moniteur implements Serializable {
     private long numMoniteur;
     private String nomM;
     private String prenomM;
-    private Date dateRecru;
+    private LocalDate dateRecru;
+
+    @OneToMany
+    private Set<Cours> cours;
 }
