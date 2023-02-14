@@ -20,6 +20,6 @@ public class Cours implements Serializable {
     private float prix;
     private Integer creneau;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "cours")
     private Set<Inscription> inscriptions;
 }

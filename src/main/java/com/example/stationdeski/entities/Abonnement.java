@@ -18,6 +18,5 @@ public class Abonnement implements Serializable {
     @Enumerated(EnumType.STRING)
     private typeAbonnement typeAbon;
 
-    @OneToOne
-    private Skieur skieur;
+
 }

@@ -19,6 +19,6 @@ public class Piste implements Serializable {
 
 
 
-    @ManyToMany()
+    @ManyToMany(mappedBy = "pistes")
     private Set<Skieur> skieurs;
 }

@@ -21,8 +21,11 @@ public class Skieur implements Serializable {
     @ManyToMany(mappedBy = "skieurs")
     private Set<Piste> pistes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "skieur")
     private Set<Inscription> inscriptions;
+
+    @OneToOne
+    private Abonnement abonnement;
 
 
 
