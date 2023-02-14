@@ -12,22 +12,23 @@ public class Skieur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idSkieur")
+    private Integer idSkieur;
     private long numSkieur;
     private String nomS;
     private String prenomS;
     private LocalDate dateNaissance;
     private String ville;
 
-    @ManyToMany(mappedBy = "skieurs")
+
+    @ManyToMany
     private Set<Piste> pistes;
 
-    @OneToMany(mappedBy = "skieur")
+    @OneToMany(mappedBy = "skieur",cascade = CascadeType.ALL)
     private Set<Inscription> inscriptions;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Abonnement abonnement;
-
-
-
-
 }
+
+
+
