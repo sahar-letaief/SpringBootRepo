@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-
+@Qualifier("todo") //ToDoDao turns to be to do only
 public class ToDoDao implements IToDoDao {
 
 	public List<String> getCoursesList() {
