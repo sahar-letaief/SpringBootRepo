@@ -1,5 +1,6 @@
 package com.example.stationdeski.controllers;
 
+import com.example.stationdeski.entities.Abonnement;
 import com.example.stationdeski.entities.Piste;
 import com.example.stationdeski.entities.Skieur;
 import com.example.stationdeski.services.IPisteService;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/skieur")
 public class SkieurRestController {
     ISkieurService skieurService;
+
     @GetMapping("/retrieve-all-skieurs")
     public List<Skieur> getSkieurs() {
         List<Skieur> listeSkieur = skieurService.retrieveAllSkieurs();
