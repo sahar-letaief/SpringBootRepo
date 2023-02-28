@@ -19,15 +19,15 @@ public class SkieurService implements ISkieurService{
     }
 
     @Override
-    public Skieur addSkieur(Skieur p) {
-        skieurRepository.save(p);
-        return p;
+    public Skieur addSkieur(Skieur s) {
+        skieurRepository.save(s);
+        return s;
     }
 
     @Override
-    public Skieur updateSkieur(Skieur p) {
-        skieurRepository.save(p);
-        return p;
+    public Skieur updateSkieur(Skieur s) {
+        skieurRepository.save(s);
+        return s;
     }
 
     @Override

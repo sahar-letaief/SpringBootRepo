@@ -9,9 +9,9 @@ public interface ISkieurService {
 
     List<Skieur> retrieveAllSkieurs();
 
-    Skieur addSkieur(Skieur p);
+    Skieur addSkieur(Skieur s);
 
-    Skieur updateSkieur (Skieur p);
+    Skieur updateSkieur (Skieur s);
 
     Skieur retrieveSkieur(Integer idSkieur);
 
