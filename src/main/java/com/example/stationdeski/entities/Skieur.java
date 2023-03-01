@@ -33,7 +33,7 @@ public class Skieur implements Serializable {
     @ManyToMany
     private Set<Piste> pistes;
 
-    @OneToMany(mappedBy = "skieur",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "skieur",cascade = CascadeType.PERSIST)
     private Set<Inscription> inscriptions;
 
     @OneToOne(cascade = CascadeType.PERSIST)
