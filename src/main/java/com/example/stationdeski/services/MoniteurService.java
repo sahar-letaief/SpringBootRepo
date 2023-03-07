@@ -37,4 +37,10 @@ public class MoniteurService implements IMoniteurService {
         moniteurRepository.deleteById(idMoniteur);
 
     }
+
+    @Override
+    public Moniteur addMoniteurAndAssignToCours(Moniteur moniteur) {
+    moniteurRepository.save(moniteur);
+        return moniteur;
+    }
 }

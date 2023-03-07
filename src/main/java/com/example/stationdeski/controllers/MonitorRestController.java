@@ -39,4 +39,10 @@ public class MonitorRestController {
         Moniteur moniteur= moniteurService.updateMoniteur(m);
         return moniteur;
     }
+
+    @PostMapping("/addMoniteurToCours")
+    public Moniteur addMoniteurAndAssignToCours(@RequestBody Moniteur m){
+        Moniteur moniteur=moniteurService.addMoniteurAndAssignToCours(m);
+        return moniteur;
+    }
 }

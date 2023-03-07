@@ -27,7 +27,7 @@ public class Moniteur implements Serializable {
     private String prenomM;
     private LocalDate dateRecru;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Cours> cours;
 
 

@@ -43,4 +43,11 @@ public class SkieurRestController {
         Skieur skieur= skieurService.updateSkieur(s);
         return skieur;
     }
+    @PutMapping("/assignSkieurToPiste/{numSkieur}/{numPiste}")
+    public Skieur assignSkieurToPiste(@PathVariable("numSkieur")Long numSkieur,
+                                      @PathVariable("numPiste") Long numPiste)
+    {
+        Skieur s=skieurService.assignSkieurToPiste(numSkieur,numPiste);
+        return s;
+    }
 }
