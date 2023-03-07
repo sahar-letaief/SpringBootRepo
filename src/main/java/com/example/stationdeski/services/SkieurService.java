@@ -1,9 +1,7 @@
 package com.example.stationdeski.services;
 
-import com.example.stationdeski.entities.Piste;
-import com.example.stationdeski.entities.Skieur;
-import com.example.stationdeski.repositories.PisteRepository;
-import com.example.stationdeski.repositories.SkieurRepository;
+import com.example.stationdeski.entities.*;
+import com.example.stationdeski.repositories.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +15,8 @@ public class SkieurService implements ISkieurService{
 
     SkieurRepository skieurRepository;
     PisteRepository pisteRepository;
+    CoursRepository coursRepository;
+    AbonnementRepository abonnementRepository;
 
     @Override
     public List<Skieur> retrieveAllSkieurs() {
@@ -53,5 +53,26 @@ public class SkieurService implements ISkieurService{
 
         return sk;
 
+    }
+    @Transactional
+    public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours){
+        Cours cours=coursRepository.getCoursByNum(String.valueOf(numCours));
+        Skieur s=skieurRepository.save(skieur);
+        Set<Inscription> inscriptions= s.getInscriptions();
+        for (Inscription ins:inscriptions
+             ) {
+            ins.setCours(cours);
+        }
+        return s;
+    }
+
+    @Override
+    public List<Skieur> retrieveSkieursByAbonnementType(typeAbonnement typeAbonnement) {
+       Set<Abonnement> ab=abonnementRepository.getAbonByType(typeAbonnement);
+        for (:
+             ) {
+            
+        }
+        return null;
     }
 }

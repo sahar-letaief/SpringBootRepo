@@ -50,4 +50,9 @@ public class SkieurRestController {
         Skieur s=skieurService.assignSkieurToPiste(numSkieur,numPiste);
         return s;
     }
+    @PostMapping("/addSkieurAndAssignToCours/{numCours}")
+    public Skieur addSkieurAndAssignToCours(@RequestBody Skieur skieur, @PathVariable("numCours") Long numCours){
+        Skieur s=skieurService.addSkieurAndAssignToCours(skieur,numCours);
+        return s;
+    }
 }

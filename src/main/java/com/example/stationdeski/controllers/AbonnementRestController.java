@@ -2,11 +2,13 @@ package com.example.stationdeski.controllers;
 
 
 import com.example.stationdeski.entities.Abonnement;
+import com.example.stationdeski.entities.typeAbonnement;
 import com.example.stationdeski.services.IAbonnementService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -38,5 +40,9 @@ public class AbonnementRestController {
     public Abonnement updateMoniteur(@RequestBody Abonnement a) {
         Abonnement ab= abonnementService.updateAbonnement(a);
         return ab;
+    }
+    @GetMapping("/getAbonnementByType/{type}")
+    public Set<Abonnement> getAbonnementByType(@PathVariable("type") typeAbonnement type){
+        return abonnementService.getAbonnementByType(type);
     }
 }
