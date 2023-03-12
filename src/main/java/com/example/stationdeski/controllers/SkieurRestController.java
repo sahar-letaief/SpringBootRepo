@@ -3,6 +3,7 @@ package com.example.stationdeski.controllers;
 import com.example.stationdeski.entities.Abonnement;
 import com.example.stationdeski.entities.Piste;
 import com.example.stationdeski.entities.Skieur;
+import com.example.stationdeski.entities.typeAbonnement;
 import com.example.stationdeski.services.IPisteService;
 import com.example.stationdeski.services.ISkieurService;
 import lombok.AllArgsConstructor;
@@ -54,5 +55,10 @@ public class SkieurRestController {
     public Skieur addSkieurAndAssignToCours(@RequestBody Skieur skieur, @PathVariable("numCours") Long numCours){
         Skieur s=skieurService.addSkieurAndAssignToCours(skieur,numCours);
         return s;
+    }
+    @GetMapping("/retrieve-skieurs/{abonnement-id}")
+    public List<Skieur> retrieveSkieur(@PathVariable("abonnement-id") typeAbonnement idAbonnement) {
+
+        return skieurService.retrieveSkieursByAbonnementType(idAbonnement);
     }
 }

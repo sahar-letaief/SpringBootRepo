@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -69,10 +70,18 @@ public class SkieurService implements ISkieurService{
     @Override
     public List<Skieur> retrieveSkieursByAbonnementType(typeAbonnement typeAbonnement) {
        Set<Abonnement> ab=abonnementRepository.getAbonByType(typeAbonnement);
-        for (:
-             ) {
-            
+       Skieur skieur= new Skieur();
+       List<Skieur> skieurList= new ArrayList<>();
+        System.out.println("abonnements= "+ab);
+
+        for (Abonnement a:ab)
+        {
+            skieur=skieurRepository.findByAbonnement(a);
+            System.out.println(skieur);
+            skieurList.add(skieur);
+
+
         }
-        return null;
+        return skieurList;
     }
 }
