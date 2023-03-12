@@ -15,6 +15,6 @@ public interface SkieurRepository extends JpaRepository<Skieur,Integer> {
     @Query("SELECT s FROM Skieur s WHERE s.abonnement =:abonnement")
     Skieur findbyIdAbon(@Param("abonnement") int id);
 
-    Skieur findByAbonnement(Abonnement abonnement);
+    List<Skieur> findByAbonnement(Abonnement abonnement);
 
 }

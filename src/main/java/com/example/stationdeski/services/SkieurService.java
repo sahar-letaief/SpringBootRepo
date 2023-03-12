@@ -76,9 +76,8 @@ public class SkieurService implements ISkieurService{
 
         for (Abonnement a:ab)
         {
-            skieur=skieurRepository.findByAbonnement(a);
+            skieurList=skieurRepository.findByAbonnement(a);
             System.out.println(skieur);
-            skieurList.add(skieur);
 
 
         }
