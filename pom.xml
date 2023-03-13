@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>......
+        <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>tn.esprit.spring</groupId>
     <artifactId>StationDeSki</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>StationDeSki</name>
@@ -46,6 +46,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope >
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.9</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -53,7 +58,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${project.parent.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>
