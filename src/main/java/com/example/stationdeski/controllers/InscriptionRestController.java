@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
@@ -86,5 +87,15 @@ public class InscriptionRestController {
     public Inscription updateInscription(@RequestBody Inscription i) {
         Inscription inscription= inscriptonService.updateInscription(i);
         return inscription;
+    }
+
+    @PostMapping("/assignInscriptionToCours/{numInscription}/{numCours}")
+    public Inscription assignInscriptionToCours(@PathVariable("numInscription") Long numInscription, @PathVariable("numCours") Long numCours){
+        Inscription ins= inscriptonService.assignInscriptionToCours(numInscription, numCours);
+        return ins;
+    }
+    @PostMapping("addInscriptionAndAssignToSkieurAndCours/{numSkieur}/{numCours}")
+    public Inscription addInscriptionAndAssignToSkieurAndCours(@RequestBody Inscription inscription, @PathVariable("numSkieur")Long numSkieur, @PathVariable("numCours")Long numCours){
+        return inscriptonService.addInscriptionAndAssignToSkieurAndCours(inscription,numSkieur,numCours);
     }
 }

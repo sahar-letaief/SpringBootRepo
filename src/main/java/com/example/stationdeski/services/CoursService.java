@@ -1,7 +1,10 @@
 package com.example.stationdeski.services;
 
 import com.example.stationdeski.entities.Cours;
+import com.example.stationdeski.entities.Moniteur;
+import com.example.stationdeski.entities.Support;
 import com.example.stationdeski.repositories.CoursRepository;
+import com.example.stationdeski.repositories.MoniteurRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import java.util.List;
 public class CoursService implements ICoursService {
 
     CoursRepository coursRepository;
+    MoniteurRepository moniteurRepository;
 
     @Override
     public List<Cours> retrieveAllCours() {
@@ -39,6 +43,16 @@ public class CoursService implements ICoursService {
     @Override
     public void deleteCours(Integer idCours) {
         coursRepository.deleteById(idCours);
+
+    }
+
+    @Override
+    public List<Integer> numWeeksCourseOfMoniteurBySupport(Long numMoniteur, Support support) {
+       Moniteur m= moniteurRepository.findMoniteurByNomM(numMoniteur);
+
+
+
+        return null;
 
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface SkieurRepository extends JpaRepository<Skieur,Integer> {
     @Query("SELECT s FROM Skieur s WHERE s.numSkieur =:numSkieur")
-    Skieur GetSkieurByNum(@Param("numSkieur") String numSkieur);
+    Skieur GetSkieurByNum(@Param("numSkieur") Long numSkieur);
 
     @Query("SELECT s FROM Skieur s WHERE s.abonnement =:abonnement")
     Skieur findbyIdAbon(@Param("abonnement") int id);

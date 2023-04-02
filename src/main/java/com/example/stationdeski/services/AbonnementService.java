@@ -6,6 +6,7 @@ import com.example.stationdeski.repositories.AbonnementRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -49,5 +50,10 @@ public class AbonnementService implements IAbonnementService{
     public Set<Abonnement> getAbonnementByType(typeAbonnement type) {
        Set<Abonnement> ab=abonnementRepository.getAbonByType(type);
        return ab;
+    }
+
+    @Override
+    public List<Abonnement> retrieveAbonnementsByDates(LocalDate startDate, LocalDate endDate) {
+        return abonnementRepository.findAbonnementByDateDebutBetween(startDate,endDate);
     }
 }

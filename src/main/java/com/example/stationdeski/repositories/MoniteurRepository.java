@@ -9,5 +9,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface MoniteurRepository extends JpaRepository<Moniteur,Integer> {
 
-
+    Moniteur findMoniteurByNomM(Long numMoniteur);
 }

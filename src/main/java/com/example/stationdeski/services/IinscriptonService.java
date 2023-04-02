@@ -15,4 +15,6 @@ public interface IinscriptonService {
     Inscription retrieveInscription (Integer idInscription);
 
     void deleteInscription(Integer idInscription);
+    Inscription assignInscriptionToCours(Long numInscription, Long numCours);
+    Inscription addInscriptionAndAssignToSkieurAndCours(Inscription inscription, Long numSkieur, Long numCours);
 }

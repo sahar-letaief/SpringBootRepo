@@ -47,7 +47,7 @@ public class SkieurService implements ISkieurService{
     }
     @Transactional
     public Skieur assignSkieurToPiste(Long numSkieur, Long numPiste){
-        Skieur sk=skieurRepository.GetSkieurByNum(String.valueOf(numSkieur));
+        Skieur sk=skieurRepository.GetSkieurByNum(numSkieur);
         Piste ps=pisteRepository.GetPisteByNum(String.valueOf(numPiste));
 
         sk.getPistes().add(ps);
@@ -57,7 +57,7 @@ public class SkieurService implements ISkieurService{
     }
     @Transactional
     public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours){
-        Cours cours=coursRepository.getCoursByNum(String.valueOf(numCours));
+        Cours cours=coursRepository.getCoursByNum(numCours);
         Skieur s=skieurRepository.save(skieur);
         Set<Inscription> inscriptions= s.getInscriptions();
         for (Inscription ins:inscriptions

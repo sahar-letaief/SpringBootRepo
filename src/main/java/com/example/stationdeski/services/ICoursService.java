@@ -1,6 +1,7 @@
 package com.example.stationdeski.services;
 
 import com.example.stationdeski.entities.Cours;
+import com.example.stationdeski.entities.Support;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface ICoursService {
     Cours retrieveCours (Integer idCours);
 
     void deleteCours( Integer idCours);
+    List<Integer> numWeeksCourseOfMoniteurBySupport(Long numMoniteur, Support support);
 }
