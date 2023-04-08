@@ -19,4 +19,7 @@ public interface IAbonnementService {
     void deleteAbonnement( Integer idAbonnement);
     Set<Abonnement> getAbonnementByType(typeAbonnement type);
     List<Abonnement> retrieveAbonnementsByDates(LocalDate startDate, LocalDate endDate);
+    void retrieveSubscriptions();
+
+    public void showMonthlyRecurringRevenue();
 }
