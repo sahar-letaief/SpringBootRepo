@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -97,5 +98,10 @@ public class AbonnementRestController {
     })
     public Set<Abonnement> getAbonnementByType(@PathVariable("type") typeAbonnement type){
         return abonnementService.getAbonnementByType(type);
+    }
+
+    @GetMapping("/retrieveAbonnementsByDates/{startDate}/{endDate}")
+    public List<Abonnement> retrieveAbonnementsByDates(@PathVariable("startDate")LocalDate startDate,@PathVariable("endDate") LocalDate endDate){
+        return  abonnementService.retrieveAbonnementsByDates(startDate,endDate);
     }
 }

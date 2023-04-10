@@ -1,6 +1,7 @@
 package com.example.stationdeski.repositories;
 
 import com.example.stationdeski.entities.Abonnement;
+import com.example.stationdeski.entities.Couleur;
 import com.example.stationdeski.entities.Skieur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +17,11 @@ public interface SkieurRepository extends JpaRepository<Skieur,Integer> {
     Skieur findbyIdAbon(@Param("abonnement") int id);
 
     List<Skieur> findByAbonnement(Abonnement abonnement);
+
+
+    @Query("SELECT s FROM Skieur s JOIN s.pistes p WHERE p.couleur =:couleur")
+    List<Skieur> skieurByCouleur(@Param("couleur") Couleur couleur);
+
+
 
 }

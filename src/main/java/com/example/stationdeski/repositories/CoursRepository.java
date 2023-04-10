@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CoursRepository extends JpaRepository<Cours,Integer> {
     @Query("SELECT c FROM Cours c WHERE c.numCours =:numCours")
@@ -14,7 +15,10 @@ public interface CoursRepository extends JpaRepository<Cours,Integer> {
 
     int countBySupport(Cours c);
 
-    List<Cours> getCoursBySupport(Support support);
+    @Query("SELECT i.numSemaine ,m.cours,c.support FROM Inscription i,Moniteur m,Cours c WHERE i.cours MEMBER OF m.cours")
+    Integer getCoursBySupport(@Param("support") Support support);
+
+
 
 
 

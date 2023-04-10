@@ -3,6 +3,7 @@ package com.example.stationdeski.services;
 import com.example.stationdeski.entities.Cours;
 import com.example.stationdeski.entities.Inscription;
 import com.example.stationdeski.entities.Skieur;
+import com.example.stationdeski.entities.TypeCours;
 import com.example.stationdeski.repositories.CoursRepository;
 import com.example.stationdeski.repositories.InscriptionRepository;
 import com.example.stationdeski.repositories.SkieurRepository;
@@ -78,19 +79,14 @@ public class InscriptionService implements IinscriptonService{
         int finalDate=period.getYears();
         Long nb=inscriptionRepository.countByCours(c);
 
-        if ((finalDate < 12)&&(finalDate>5 )|| ( finalDate < 35)&&(finalDate>20)){
-            if ((c.getTypeCours().equals("COLLECTIF_ENFANT")) || (c.getTypeCours().equals("COLLECTIF_ADULTE"))) {
-
+        if ((finalDate < 12)&&(finalDate>5 ) &&(c.getTypeCours().equals(TypeCours.COLLECTIF_ENFANT))||
+                ( finalDate < 35)&&(finalDate>20)&&(c.getTypeCours().equals(TypeCours.COLLECTIF_ADULTE))){
                 if(nb>=6) {
                     inscriptionRepository.save(inscription);
                     inscription.setCours(c);
                     inscription.setSkieur(s);
                 }
             }
-        }
             return inscription;
         }
-
-
-
 }

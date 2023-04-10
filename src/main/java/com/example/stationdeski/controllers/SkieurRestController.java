@@ -1,9 +1,6 @@
 package com.example.stationdeski.controllers;
 
-import com.example.stationdeski.entities.Abonnement;
-import com.example.stationdeski.entities.Piste;
-import com.example.stationdeski.entities.Skieur;
-import com.example.stationdeski.entities.typeAbonnement;
+import com.example.stationdeski.entities.*;
 import com.example.stationdeski.services.IPisteService;
 import com.example.stationdeski.services.ISkieurService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -129,5 +127,11 @@ public class SkieurRestController {
     public List<Skieur> retrieveSkieursByAbonnementType(@PathVariable("typeAbon") typeAbonnement typeAbon) {
 
         return skieurService.retrieveSkieursByAbonnementType(typeAbon);
+    }
+
+    @GetMapping("nombreSkieursParCouleurPiste")
+    public HashMap<Couleur,Integer> nombreSkieursParCouleurPiste(){
+        return  skieurService.nombreSkieursParCouleurPiste();
+
     }
 }

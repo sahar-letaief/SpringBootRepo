@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -83,4 +84,14 @@ public class SkieurService implements ISkieurService{
         }
         return skieurList;
     }
+
+    @Override
+    public HashMap<Couleur, Integer> nombreSkieursParCouleurPiste() {
+        HashMap<Couleur, Integer> map=new HashMap<>();
+            for (Couleur c:Couleur.values()) {
+                map.put(c, skieurRepository.skieurByCouleur(c).size());
+        }
+        return map;
+    }
+    
 }
