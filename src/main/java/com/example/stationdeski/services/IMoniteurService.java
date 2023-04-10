@@ -1,5 +1,6 @@
 package com.example.stationdeski.services;
 import com.example.stationdeski.entities.Moniteur;
+import com.example.stationdeski.entities.Support;
 
 import java.util.List;
 
@@ -15,5 +16,6 @@ public interface IMoniteurService {
 
     void deleteMoniteur( Integer idMoniteur);
     Moniteur addMoniteurAndAssignToCours(Moniteur moniteur);
+    List<Integer> numWeeksCourseOfMoniteurBySupport(long numMoniteur, Support support);
 
 }

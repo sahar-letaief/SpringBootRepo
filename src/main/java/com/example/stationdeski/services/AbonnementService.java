@@ -88,7 +88,7 @@ public class AbonnementService implements IAbonnementService{
         float mmr=0;
         for (Abonnement a:listab
              )
-            if(a.getTypeAbon().equals("MENSUEL")){
+            if(a.getTypeAbon().equals(typeAbonnement.SEMESTRIEL)){
                 mmr+=a.getPrixAbon();
             }
         log.info("les prix des abonnements mensuels sont "+mmr);

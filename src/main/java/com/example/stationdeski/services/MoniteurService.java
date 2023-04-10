@@ -1,6 +1,7 @@
 package com.example.stationdeski.services;
 
 import com.example.stationdeski.entities.Moniteur;
+import com.example.stationdeski.entities.Support;
 import com.example.stationdeski.repositories.MoniteurRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,10 @@ public class MoniteurService implements IMoniteurService {
     public Moniteur addMoniteurAndAssignToCours(Moniteur moniteur) {
     moniteurRepository.save(moniteur);
         return moniteur;
+    }
+    @Override
+    public List<Integer> numWeeksCourseOfMoniteurBySupport(long numMoniteur, Support support){
+        return null;
+
     }
 }
