@@ -8,6 +8,7 @@ import com.example.stationdeski.repositories.MoniteurRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -48,11 +49,17 @@ public class CoursService implements ICoursService {
 
     @Override
     public List<Integer> numWeeksCourseOfMoniteurBySupport(Long numMoniteur, Support support) {
-       Moniteur m= moniteurRepository.findMoniteurByNomM(numMoniteur);
+        List<Integer> liste=new ArrayList<>();
+        Moniteur m= moniteurRepository.findMoniteurByNomM(numMoniteur);
+        List<Cours> listecours=coursRepository.findCoursBySupport(support);
+        for (Cours c:listecours
+             ) {
+            Integer i=coursRepository.getCoursBySupport(support);
+            liste.add(i);
 
+        }
 
-
-        return null;
+        return liste;
 
     }
 }

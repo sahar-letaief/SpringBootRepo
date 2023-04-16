@@ -15,6 +15,8 @@ public interface CoursRepository extends JpaRepository<Cours,Integer> {
 
     int countBySupport(Cours c);
 
+    List<Cours> findCoursBySupport(Support support);
+
     @Query("SELECT i.numSemaine ,m.cours,c.support FROM Inscription i,Moniteur m,Cours c WHERE i.cours MEMBER OF m.cours")
     Integer getCoursBySupport(@Param("support") Support support);
 
