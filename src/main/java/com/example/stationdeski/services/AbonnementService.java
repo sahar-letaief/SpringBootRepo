@@ -70,13 +70,13 @@ public class AbonnementService implements IAbonnementService{
     public void retrieveSubscriptions() {
         LocalDate beforedate=LocalDate.now().plusDays(7);
         List<Abonnement> listab=abonnementRepository.findAbonnementByDateFinBefore(beforedate);
-        for (Abonnement a:listab) {
+       /* for (Abonnement a:listab) {
             Skieur s=skieurRepository.findbyIdAbon(a.getIdAbonnement());
             System.out.println("Skieur " +s.getNomS() + " " + s.getPrenomS() + " Num Skieur " + s.getNumSkieur()+
                     "Abonnement"+a.getNumAbon());
             log.info("Skieur " +s.getNomS() + " " + s.getPrenomS() + " Num Skieur " + s.getNumSkieur()+
                     "Abonnement"+a.getNumAbon());
-        }
+        }*/
 
 
     }
