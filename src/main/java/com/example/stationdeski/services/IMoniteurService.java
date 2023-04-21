@@ -17,5 +17,6 @@ public interface IMoniteurService {
     void deleteMoniteur( Integer idMoniteur);
     Moniteur addMoniteurAndAssignToCours(Moniteur moniteur);
     List<Integer> numWeeksCourseOfMoniteurBySupport(long numMoniteur, Support support);
+    Moniteur bestMoniteur();
 
 }

@@ -51,15 +51,19 @@ public class CoursService implements ICoursService {
     public List<Integer> numWeeksCourseOfMoniteurBySupport(Long numMoniteur, Support support) {
         List<Integer> liste=new ArrayList<>();
         Moniteur m= moniteurRepository.findMoniteurByNomM(numMoniteur);
-        List<Cours> listecours=coursRepository.findCoursBySupport(support);
-        for (Cours c:listecours
-             ) {
-            Integer i=coursRepository.getCoursBySupport(support);
-            liste.add(i);
-
+        if(m==null){
+            throw new RuntimeException("moniteur is not found");
         }
+        else {
+            List<Cours> listecours = coursRepository.findCoursBySupport(support);
+            for (Cours c : listecours
+            ) {
+                Integer i = coursRepository.getCoursBySupport(support);
+                liste.add(i);
 
-        return liste;
+            }
 
+            return liste;
+        }
     }
 }

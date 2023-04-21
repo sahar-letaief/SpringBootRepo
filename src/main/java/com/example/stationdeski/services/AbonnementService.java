@@ -62,6 +62,10 @@ public class AbonnementService implements IAbonnementService{
 
     @Override
     public List<Abonnement> retrieveAbonnementsByDates(LocalDate startDate, LocalDate endDate) {
+        if((startDate==null)||(endDate==null)){
+            throw new RuntimeException("dates are empty");
+        }
+        else
         return abonnementRepository.findAbonnementByDateDebutBetween(startDate,endDate);
     }
 

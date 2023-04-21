@@ -6,8 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 
 public interface MoniteurRepository extends JpaRepository<Moniteur,Integer> {
 
     Moniteur findMoniteurByNomM(Long numMoniteur);
+
+    //List<Moniteur> getMoniteurByCours();
 }
