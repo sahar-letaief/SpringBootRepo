@@ -28,6 +28,7 @@ public class SkieurProcessor implements ItemProcessor<Skieur, Skieur> {
 		// affecter par défaut le prix d'abonnement pour un abonnement mensuel
 
 		Long numAbonnement = ThreadLocalRandom.current().nextLong(1000000); // numéro abonnement généré automatiquement
+		LocalDate dateDebutAbonnement = LocalDate.now();
 
 		// calculer la date fin  et affecter  le prix d'abonnement
 		// pour les deux autres types d'abonnement
@@ -35,27 +36,24 @@ public class SkieurProcessor implements ItemProcessor<Skieur, Skieur> {
 		switch (skieur.getTypeAbon()) {
 
 			case "ANNUEL":
-				LocalDate dateDebutAbonnement = LocalDate.now();
+
 				LocalDate dateFinAbonnement = LocalDate.now().plusMonths(12);
 				Float prixAbon = 600F;
-				Abonnement ab=new Abonnement(0,numAbonnement,dateDebutAbonnement,dateFinAbonnement,prixAbon,TypeAbonnement.ANNUEL);
-				Abonnement.builder().build();
+				Abonnement ab=Abonnement.builder().numAbon(numAbonnement).dateDebut(dateDebutAbonnement).dateFin(dateFinAbonnement).prixAbon(prixAbon).typeAbon(TypeAbonnement.ANNUEL).build();
 				skieur.setAbonnement(ab);
 
 				break;
 			case "SEMESTRIEL":
-				dateDebutAbonnement = LocalDate.now();
-				dateFinAbonnement = LocalDate.now().plusMonths(5);
+
+				dateFinAbonnement = LocalDate.now().plusMonths(6);
 				prixAbon = 300F;
-				Abonnement ab2=new Abonnement(0,numAbonnement,dateDebutAbonnement,dateFinAbonnement,prixAbon,TypeAbonnement.ANNUEL);
-				Abonnement.builder().build();
+				Abonnement ab2=Abonnement.builder().numAbon(numAbonnement).dateDebut(dateDebutAbonnement).dateFin(dateFinAbonnement).prixAbon(prixAbon).typeAbon(TypeAbonnement.ANNUEL).build();
 				skieur.setAbonnement(ab2);
 			case "MENSUEL":
-				 dateDebutAbonnement = LocalDate.now();
-				 dateFinAbonnement = LocalDate.now().plusMonths(1);
+
+				dateFinAbonnement = LocalDate.now().plusMonths(1);
 				prixAbon = 60F;
-				Abonnement ab3=new Abonnement(0,numAbonnement,dateDebutAbonnement,dateFinAbonnement,prixAbon,TypeAbonnement.ANNUEL);
-				Abonnement.builder().build();
+				Abonnement ab3=Abonnement.builder().numAbon(numAbonnement).dateDebut(dateDebutAbonnement).dateFin(dateFinAbonnement).prixAbon(prixAbon).typeAbon(TypeAbonnement.ANNUEL).build();
 				skieur.setAbonnement(ab3);
 				break;
 		}
